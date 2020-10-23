@@ -1,7 +1,7 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
-import {Box, Grid} from '@material-ui/core';
-import {ShoppingCart} from '@material-ui/icons'
+import {Grid} from '@material-ui/core';
+import {ShoppingCart} from '@material-ui/icons';
 
 const styles = (theme) => ({
   container: {

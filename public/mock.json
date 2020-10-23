@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "category": "refrigerante",
+    "name": "Coca-Cola",
+    "description": "Refrigerante Coca-cola sabor normal 350ml",
+    "price": 5,
+    "image": ""
+  },
+  {
+    "id": 1,
+    "category": "refrigerante",
+    "name": "Guaraná",
+    "description": "Refrigerante Guaraná sabor normal 350ml",
+    "price": 5,
+    "image": ""
+  },
+  {
+    "id": 2,
+    "category": "refrigerante",
+    "name": "Fanta Laranja",
+    "description": "Refrigerante Fanta 350ml",
+    "price": 5,
+    "image": ""
+  },
+  {
+    "id": 3,
+    "category": "alimento",
+    "name": "Sanduíche natural",
+    "description": "Sanduíche natural sabor salame duas fatias",
+    "price": 10,
+    "image": ""
+  },
+  {
+    "id": 4,
+    "category": "doces",
+    "name": "Bala de goma",
+    "description": "Pacote com 10 balas de goma",
+    "price": 3,
+    "image": ""
+  }
+]
