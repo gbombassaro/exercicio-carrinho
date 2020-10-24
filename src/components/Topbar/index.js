@@ -2,6 +2,7 @@ import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core';
 import {ShoppingCart} from '@material-ui/icons';
+import {Link} from 'react-router-dom';
 
 const styles = (theme) => ({
   container: {
@@ -35,9 +36,9 @@ const Topbar = ({classes}) => {
       <Grid className={classes.brandContainer}>
         <img src='/bulbasaur.png' className={classes.brand} />
       </Grid>
-      <Grid>
+      <Link to={'/carrinho'}>
         <ShoppingCart className={classes.icon} />
-      </Grid>
+      </Link>
     </Grid>
   )
 }
