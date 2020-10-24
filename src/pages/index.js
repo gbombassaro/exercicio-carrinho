@@ -1,2 +1,2 @@
-export {default as Carrinho} from './Carrinho';
-export {default as ListaDeProdutos} from './ListaDeProdutos';
+export {default as Carrinho} from './cart/Carrinho';
+export {default as ListaDeProdutos} from './productList/ListaDeProdutos';
