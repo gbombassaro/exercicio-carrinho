@@ -1,24 +1,10 @@
 import React from 'react';
 import {Box, Button, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
+import {getProductContainerStyles} from '../../styles/productContainerStyle'
 
 const styles = theme => ({
-  container: {
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: theme.spacing(2),
-    borderWidth: 1,
-    borderColor: '#EAEAEA',
-    borderStyle: 'solid',
-    borderRadius: 5,
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    '&:hover': {
-      borderColor: theme.palette.primary.main
-    }
-  }
+  container: getProductContainerStyles(theme)
 })
 
 const Product = ({classes, data, addProductAction}) => {

@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {map} from 'lodash';
 import {withStyles} from '@material-ui/core/styles';
-import Product from '../../components/Product'
 import Container from '../../components/Container';
-import productsList from '../../mock.json';
+import {map} from 'lodash';
+import CartProduct from '../../components/CartProduct';
 
 const styles = (theme) => ({
   container: {
@@ -23,19 +22,14 @@ const styles = (theme) => ({
   }
 })
 
-const ListaDeProdutos = (props) => {
-
-  const {classes, cart, dispatch} = props;
-
-  const addProduct = entry => {
-    dispatch({type: 'ADD_TO_CART', payload: entry})
-  }
-
+const Carrinho = ({classes, cart}) => {
   return (
     <Container state={cart}>
       <div className={classes.container}>
         <div className={classes.productsContainer}>
-          {map(productsList, (entry, key) => <Product key={key} data={entry} addProductAction={() => addProduct(entry)} /> )}
+          {map(cart, (entry, key) => {
+            return <CartProduct key={key} data={entry} />
+          })}
         </div>
       </div>
     </Container>
@@ -46,4 +40,4 @@ const mapStateToProps = ({cart}) => {
   return {cart};
 }
 
-export default connect(mapStateToProps, null)(withStyles(styles)(ListaDeProdutos));
+export default connect(mapStateToProps, null)(withStyles(styles)(Carrinho));
