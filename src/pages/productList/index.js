@@ -2,8 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {map} from 'lodash';
 import {withStyles} from '@material-ui/core/styles';
-import Topbar from '../../components/Topbar';
 import Product from '../../components/Product'
+import Container from '../../components/Container';
 import productsList from '../../mock.json';
 
 const styles = (theme) => ({
@@ -26,20 +26,20 @@ const styles = (theme) => ({
 const ListaDeProdutos = (props) => {
 
   const {classes, cart, dispatch} = props;
-  console.log(cart);
 
   const addProduct = entry => {
     dispatch({type: 'ADD_TO_CART', payload: entry})
   }
 
   return (
-    <div className={classes.container}>
-      <Topbar />
-      <div className={classes.productsContainer}>
-        {map(productsList, (entry, key) => <Product key={key} data={entry} addProductAction={() => addProduct(entry)} /> )}
+    <Container state={cart}>
+      <div className={classes.container}>      
+        <div className={classes.productsContainer}>
+          {map(productsList, (entry, key) => <Product key={key} data={entry} addProductAction={() => addProduct(entry)} /> )}
+        </div>
+        {/* {cart && <pre>{cart.description}</pre>} */}
       </div>
-      {/* {cart && <pre>{cart.description}</pre>} */}
-    </div>
+    </Container>
   )
 }
 

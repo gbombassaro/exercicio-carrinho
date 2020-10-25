@@ -1,8 +1,8 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles';
-import {Grid} from '@material-ui/core';
-import {ShoppingCart} from '@material-ui/icons';
 import {Link} from 'react-router-dom';
+import {Grid, Chip} from '@material-ui/core';
+import {ShoppingCart} from '@material-ui/icons';
+import {withStyles} from '@material-ui/core/styles';
 
 const styles = (theme) => ({
   container: {
@@ -30,17 +30,22 @@ const styles = (theme) => ({
   }
 })
 
-const Topbar = ({classes}) => {
+const Topbar = ({classes, data}) => {
   return (
     <Grid className={classes.container}>
       <Grid className={classes.brandContainer}>
-        <img src='/bulbasaur.png' className={classes.brand} />
+        <img src='/bulbasaur.png' className={classes.brand}/>
       </Grid>
-      {/* <Link to={'/carrinho'}>
-        <ShoppingCart className={classes.icon} />
-      </Link> */}
+      <Link to={'/carrinho'}>
+        <Chip label={data.length}/>
+        <ShoppingCart className={classes.icon}/>
+      </Link>
     </Grid>
   )
+}
+
+Topbar.defaultProps = {
+  data: []
 }
 
 export default withStyles(styles)(Topbar);
