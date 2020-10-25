@@ -36,9 +36,9 @@ const Topbar = ({classes}) => {
       <Grid className={classes.brandContainer}>
         <img src='/bulbasaur.png' className={classes.brand} />
       </Grid>
-      <Link to={'/carrinho'}>
+      {/* <Link to={'/carrinho'}>
         <ShoppingCart className={classes.icon} />
-      </Link>
+      </Link> */}
     </Grid>
   )
 }

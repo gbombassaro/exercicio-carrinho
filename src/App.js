@@ -6,7 +6,6 @@ import {theme} from './styles/theme';
 import './styles/index.css';
 
 function App() {
-  console.log(theme);
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>

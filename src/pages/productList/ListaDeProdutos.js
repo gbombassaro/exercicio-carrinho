@@ -1,10 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {map} from 'lodash';
-import {useSelector, useDispatch} from 'react-redux';
 import {withStyles} from '@material-ui/core/styles';
 import Topbar from '../../components/Topbar';
 import Product from '../../components/Product'
-import {addToCart} from './cartReducer';
+import productsList from '../../mock.json';
 
 const styles = (theme) => ({
   container: {
@@ -23,25 +23,28 @@ const styles = (theme) => ({
   }
 })
 
-const ListaDeProdutos = ({classes}) => {
+const ListaDeProdutos = (props) => {
 
-  const state = useSelector(state => state);
-  console.log(state);
-  const productsList = useSelector(state => state.productsList);
+  const {classes, cart, dispatch} = props;
+  console.log(cart);
 
-  const dispatcher = useDispatch();
-  
-  // console.log(productList);
-  // const dispatch = useDispatch();
+  const addProduct = entry => {
+    dispatch({type: 'ADD_TO_CART', payload: entry})
+  }
 
   return (
     <div className={classes.container}>
       <Topbar />
       <div className={classes.productsContainer}>
-        {map(productsList, (entry, key) => <Product key={key} data={entry} addProductAction={() => dispatcher(addToCart())} /> )}
+        {map(productsList, (entry, key) => <Product key={key} data={entry} addProductAction={() => addProduct(entry)} /> )}
       </div>
+      {/* {cart && <pre>{cart.description}</pre>} */}
     </div>
   )
 }
 
-export default withStyles(styles)(ListaDeProdutos);
+const mapStateToProps = ({cart}) => {
+  return {cart};
+}
+
+export default connect(mapStateToProps, null)(withStyles(styles)(ListaDeProdutos));
