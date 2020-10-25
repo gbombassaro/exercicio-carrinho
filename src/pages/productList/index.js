@@ -6,7 +6,7 @@ import Product from '../../components/Product'
 import Container from '../../components/Container';
 import productsList from '../../mock.json';
 
-const styles = (theme) => ({
+const styles = theme => ({
   container: {
     display: 'flex',
     flexDirection: 'column',

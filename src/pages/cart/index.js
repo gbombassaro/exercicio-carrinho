@@ -1,9 +1,11 @@
 import React from 'react';
+import {Box} from '@material-ui/core';
 import {connect} from 'react-redux';
 import {withStyles} from '@material-ui/core/styles';
 import Container from '../../components/Container';
 import {map} from 'lodash';
 import CartProduct from '../../components/CartProduct';
+import {getProductContainerStyles} from '../../styles/productContainerStyle'
 
 const styles = (theme) => ({
   container: {
@@ -11,6 +13,7 @@ const styles = (theme) => ({
     flexDirection: 'column',
     alignItems: 'center'
   },
+  totalContainer: getProductContainerStyles(theme),
   productsContainer: {
     width: '100%',
     [theme.breakpoints.up('md')]: {
@@ -30,6 +33,9 @@ const Carrinho = ({classes, cart}) => {
           {map(cart, (entry, key) => {
             return <CartProduct key={key} data={entry} />
           })}
+          <Box className={classes.totalContainer}>
+            Testando 12345
+          </Box>
         </div>
       </div>
     </Container>

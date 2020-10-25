@@ -24,7 +24,7 @@ const CartProduct = ({classes, data, addProductAction}) => {
         </IconButton>
       </div>
       <Typography>{name}</Typography>
-      <Button color="primary" onClick={addProductAction}>Adicionar ao Carrinho + </Button>
+      <Typography>R$ </Typography>
     </Box>
   )
 }
