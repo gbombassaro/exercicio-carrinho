@@ -1,8 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {Grid, Chip} from '@material-ui/core';
-import {ShoppingCart} from '@material-ui/icons';
+import {Grid} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
+import CartButton from './CartButton';
 
 const styles = (theme) => ({
   container: {
@@ -36,10 +35,7 @@ const Topbar = ({classes, data}) => {
       <Grid className={classes.brandContainer}>
         <img src='/bulbasaur.png' className={classes.brand}/>
       </Grid>
-      <Link to={'/carrinho'}>
-        <Chip label={data.length}/>
-        <ShoppingCart className={classes.icon}/>
-      </Link>
+      <CartButton path='/carrinho' data={data} />
     </Grid>
   )
 }
