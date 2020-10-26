@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {map} from 'lodash';
-import {IconButton, Menu, Typography} from '@material-ui/core';
+import {IconButton, Menu} from '@material-ui/core';
 import {KeyboardArrowDown} from '@material-ui/icons';
 import MenuItem from './MenuItem';
 
-const CartMenu = ({classes, data}) => {
+const CartMenu = ({data}) => {
 
   const [menuAnchor, setMenuAnchor] = useState(null);
   const setAnchor = ({currentTarget}) => setMenuAnchor(currentTarget);
