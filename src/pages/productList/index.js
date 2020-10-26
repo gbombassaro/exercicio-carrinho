@@ -9,7 +9,6 @@ const ListaDeProdutos = ({cart, dispatch}) => {
 
   const addProduct = entry => {
     dispatch({type: 'ADD_TO_CART', payload: entry})
-    //DISPTACH INCREASE AMOUNT
   }
 
   return (
