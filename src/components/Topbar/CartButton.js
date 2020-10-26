@@ -12,7 +12,7 @@ const styles = theme => ({
   amountBadge: {
     position: 'absolute',
     top: 8,
-    right: 8,
+    right: 60,
     width: 24,
     height: 24,
     backgroundColor: 'white'

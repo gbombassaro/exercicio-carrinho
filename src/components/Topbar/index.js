@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {Grid} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import CartButton from './CartButton';
 import BackButton from './BackButton';
+import CartMenu from './CartMenu';
 
 const styles = (theme) => ({
   container: {
@@ -49,6 +50,7 @@ const Topbar = ({classes, data}) => {
       <Link to='/carrinho'>
         <CartButton path='/carrinho' data={data} />
       </Link>
+      <CartMenu data={data} />
     </Grid>
   )
 }
