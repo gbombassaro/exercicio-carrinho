@@ -1,15 +1,7 @@
-import {find} from 'lodash';
-
 const addToCart = (state, action) => {
-  let hasProductInCart = find(state, action.payload);
-  
-  if (hasProductInCart) {
-    hasProductInCart.productAmount ++;
-    hasProductInCart.totalAmount = hasProductInCart.productAmount * hasProductInCart.price;
-    return state;
-  }
-
-  return [...state, action.payload]
+  let productAmount = 0;
+  action.payload.productAmount = productAmount + 1;
+  return [...state, action.payload];
 }
 
 const cart = (state = [], action) => {
