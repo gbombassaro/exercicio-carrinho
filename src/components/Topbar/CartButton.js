@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Chip} from '@material-ui/core';
 import {ShoppingCart} from '@material-ui/icons';
 import {withStyles} from '@material-ui/core/styles';
@@ -30,12 +29,12 @@ const styles = theme => ({
   }
 })
 
-const CartButton = ({classes, data, path}) => {
+const CartButton = ({classes, data}) => {
   return (
-    <Link to={path} className={classes.container}>
+    <div className={classes.container}>
       <Chip label={data.length} className={classes.amountBadge} classes={{label: classes.badgeLabel}} />
       <ShoppingCart className={classes.icon}/>
-    </Link>
+    </div>
   )
 }
 

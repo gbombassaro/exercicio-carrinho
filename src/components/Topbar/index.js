@@ -1,5 +1,5 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {Grid} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import CartButton from './CartButton';
@@ -46,7 +46,9 @@ const Topbar = ({classes, data}) => {
       <Grid className={classes.brandContainer}>
         <img src='/bulbasaur.png' className={classes.brand}/>
       </Grid>
-      <CartButton path='/carrinho' data={data} />
+      <Link to='/carrinho'>
+        <CartButton path='/carrinho' data={data} />
+      </Link>
     </Grid>
   )
 }
