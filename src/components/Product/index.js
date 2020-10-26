@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Button, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
-import {getProductContainerStyles} from '../../styles/productContainerStyle'
+import {getProductContainerStyles} from '../../styles/components'
 
 const styles = theme => ({
   container: getProductContainerStyles(theme)

@@ -4,8 +4,8 @@ const addToCart = (state, action) => {
   let hasProductInCart = find(state, action.payload);
   
   if (hasProductInCart) {
-    if (hasProductInCart.productAmount === 0) hasProductInCart.productAmount ++;
     hasProductInCart.productAmount ++;
+    hasProductInCart.totalAmount = hasProductInCart.productAmount * hasProductInCart.price;
     return state;
   }
 

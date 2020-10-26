@@ -2,7 +2,7 @@ import React from 'react';
 import {Box, Typography, IconButton} from '@material-ui/core';
 import {Add, Remove} from '@material-ui/icons';
 import {withStyles} from '@material-ui/core/styles';
-import {getProductContainerStyles} from '../../styles/productContainerStyle'
+import {getProductContainerStyles} from '../../styles/components'
 
 const styles = theme => ({
   container: {

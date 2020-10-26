@@ -1,5 +1,5 @@
 export const getProductContainerStyles = theme => ({
-  width: '100%',
+  width: 'calc(100% - 32px)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
