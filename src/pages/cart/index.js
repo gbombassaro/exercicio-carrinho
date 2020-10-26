@@ -8,36 +8,16 @@ import CartProduct from '../../components/CartProduct';
 import {getProductContainerStyles} from '../../styles/productContainerStyle'
 
 const styles = (theme) => ({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
   totalContainer: getProductContainerStyles(theme),
-  productsContainer: {
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      maxWidth: 500
-    },
-    [theme.breakpoints.up('lg')]: {
-      maxWidth: 750
-    }
-  }
 })
 
 const Carrinho = ({classes, cart}) => {
   return (
-    <Container state={cart}>
-      <div className={classes.container}>
-        <div className={classes.productsContainer}>
-          {map(cart, (entry, key) => {
-            return <CartProduct key={key} data={entry} />
-          })}
-          <Box className={classes.totalContainer}>
-            Testando 12345
-          </Box>
-        </div>
-      </div>
+    <Container state={cart} title='Finalizar pedido'>
+      {map(cart, (entry, key) => <CartProduct key={key} data={entry}/>)}
+      <Box className={classes.totalContainer}>
+        Testando 12345
+      </Box>
     </Container>
   )
 }

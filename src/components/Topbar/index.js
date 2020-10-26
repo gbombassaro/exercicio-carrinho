@@ -1,7 +1,9 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import {Grid} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import CartButton from './CartButton';
+import BackButton from './BackButton';
 
 const styles = (theme) => ({
   container: {
@@ -30,8 +32,17 @@ const styles = (theme) => ({
 })
 
 const Topbar = ({classes, data}) => {
+  const history = useHistory();
+  const {pathname} = history.location;
+
+  const renderBackButton = () => {
+    if (pathname === '/') return null;
+    return <BackButton />
+  }
+
   return (
     <Grid className={classes.container}>
+      {renderBackButton()}
       <Grid className={classes.brandContainer}>
         <img src='/bulbasaur.png' className={classes.brand}/>
       </Grid>
