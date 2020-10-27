@@ -17,7 +17,7 @@ const styles = (theme) => ({
   }
 })
 
-const Carrinho = ({classes, cart}) => {
+const Carrinho = ({classes, cart, dispatch}) => {
 
   const [dialog, setDialog] = useState(false);
   const emptyCart = cart.length < 1;
@@ -45,9 +45,17 @@ const Carrinho = ({classes, cart}) => {
     return <Button color='primary' variant='contained' onClick={openDialog}>Finalizar compra</Button>;
   }
 
+  const handleIncreaseAmount = entry => {
+    dispatch({type: 'INCREASE_AMOUNT', payload: entry})
+  }
+
+  const handleDecreaseAmount = entry => {
+    dispatch({type: 'DECREASE_AMOUNT', payload: entry})
+  }
+
   return (
     <Container state={cart} title='Finalizar pedido'>
-      {map(cart, (entry, key) => <CartProduct key={key} data={entry}/>)}
+      {map(cart, (entry, key) => <CartProduct key={key} data={entry} addAction={() => handleIncreaseAmount(entry)} removeAction={() => handleDecreaseAmount(entry)}/>)}
       <div className={classes.totalContainer}>{renderTotalContent()}</div>
       <div className={classes.buttonContainer}>{renderCheckoutButton()}</div>
       <Dialog open={dialog} onClose={closeDialog} />

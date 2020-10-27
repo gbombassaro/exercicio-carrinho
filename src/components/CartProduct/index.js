@@ -14,16 +14,16 @@ const styles = theme => ({
   }
 })
 
-const CartProduct = ({classes, data, addProductAction}) => {
+const CartProduct = ({classes, data, addAction, removeAction}) => {
   const {name, price, productAmount} = data;
   return (
     <Box className={classes.container}>
       <div style={{width: 'max-content', display: 'flex'}}>
-        <IconButton>
+        <IconButton onClick={removeAction}>
           <Remove className={classes.icon}/>
         </IconButton>
         <Typography>{productAmount}</Typography>
-        <IconButton>
+        <IconButton onClick={addAction}>
           <Add className={classes.icon} />
         </IconButton>
       </div>
