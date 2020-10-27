@@ -3,6 +3,7 @@ import {map} from 'lodash';
 import {IconButton, Menu} from '@material-ui/core';
 import {KeyboardArrowDown} from '@material-ui/icons';
 import MenuItem from './MenuItem';
+import PropTypes from 'prop-types';
 
 const CartMenu = ({data}) => {
 
@@ -25,6 +26,10 @@ const CartMenu = ({data}) => {
       </Menu>
     </React.Fragment>
   )
+}
+
+CartMenu.propTypes = {
+  data: PropTypes.object.isRequired
 }
 
 export default CartMenu;

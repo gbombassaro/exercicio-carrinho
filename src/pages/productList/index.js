@@ -4,6 +4,7 @@ import {map} from 'lodash';
 import Product from '../../components/Product'
 import Container from '../../components/Container';
 import productsList from '../../mock.json';
+import PropTypes from 'prop-types';
 
 const ListaDeProdutos = ({cart, dispatch}) => {
 
@@ -16,6 +17,11 @@ const ListaDeProdutos = ({cart, dispatch}) => {
       {map(productsList, (entry, key) => <Product key={key} data={entry} addProductAction={() => addProduct(entry)} /> )}
     </Container>
   )
+}
+
+ListaDeProdutos.propTypes = {
+  cart: PropTypes.object,
+  dispatch: PropTypes.func
 }
 
 const mapStateToProps = ({cart}) => {

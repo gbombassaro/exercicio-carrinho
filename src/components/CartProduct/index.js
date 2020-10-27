@@ -3,6 +3,7 @@ import {Box, Typography, IconButton} from '@material-ui/core';
 import {Add, Remove} from '@material-ui/icons';
 import {withStyles} from '@material-ui/core/styles';
 import {getProductContainerStyles} from '../../styles/components'
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   container: {
@@ -43,6 +44,13 @@ const CartProduct = ({classes, data, addAction, removeAction}) => {
       </div>
     </Box>
   )
+}
+
+CartProduct.propTypes = {
+  classes: PropTypes.object,
+  data: PropTypes.object.isRequired,
+  addAction: PropTypes.func.isRequired,
+  removeAction: PropTypes.func.isRequired
 }
 
 export default withStyles(styles)(CartProduct);

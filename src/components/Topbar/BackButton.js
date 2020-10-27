@@ -3,6 +3,7 @@ import {useHistory} from 'react-router-dom';
 import {Typography} from '@material-ui/core';
 import {KeyboardArrowLeft} from '@material-ui/icons';
 import {withStyles} from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   container: {
@@ -36,6 +37,10 @@ const BackButton = ({classes}) => {
       <Typography className={classes.typography}>Voltar</Typography>
     </div>
   )
+}
+
+BackButton.propTypes = {
+  classes: PropTypes.object,
 }
 
 export default withStyles(styles)(BackButton);

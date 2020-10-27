@@ -7,6 +7,7 @@ import Container from '../../components/Container';
 import CartProduct from '../../components/CartProduct';
 import {getProductContainerStyles} from '../../styles/components'
 import Dialog from '../../components/Dialog';
+import PropTypes from 'prop-types';
 
 const styles = (theme) => ({
   totalContainer: {
@@ -35,6 +36,18 @@ const Carrinho = ({classes, cart, dispatch}) => {
     setDialog(false);
   }
 
+  const handleIncreaseAmount = entry => {
+    dispatch({type: 'INCREASE_AMOUNT', payload: entry})
+  }
+
+  const handleDecreaseAmount = entry => {
+    dispatch({type: 'DECREASE_AMOUNT', payload: entry})
+  }
+
+  const clearState = () => {
+    dispatch({type: 'CLEAR'})
+  }
+
   const renderTotalContent = () => {
     if (emptyCart) return <Typography>Não há produtos no seu carrinho.</Typography>;
     return (
@@ -50,18 +63,6 @@ const Carrinho = ({classes, cart, dispatch}) => {
     return <Button color='primary' variant='contained' onClick={openDialog}>Finalizar compra</Button>;
   }
 
-  const handleIncreaseAmount = entry => {
-    dispatch({type: 'INCREASE_AMOUNT', payload: entry})
-  }
-
-  const handleDecreaseAmount = entry => {
-    dispatch({type: 'DECREASE_AMOUNT', payload: entry})
-  }
-
-  const clearState = () => {
-    dispatch({type: 'CLEAR'})
-  }
-
   return (
     <Container state={cart} title='Finalizar pedido'>
       {map(cart, (entry, key) => <CartProduct key={key} data={entry} addAction={() => handleIncreaseAmount(entry)} removeAction={() => handleDecreaseAmount(entry)}/>)}
@@ -70,6 +71,12 @@ const Carrinho = ({classes, cart, dispatch}) => {
       <Dialog open={dialog} onClose={closeDialog} clearState={clearState} />
     </Container>
   )
+}
+
+Carrinho.propTypes = {
+  classes: PropTypes.object,
+  cart: PropTypes.object,
+  dispatch: PropTypes.func
 }
 
 const mapStateToProps = ({cart}) => {

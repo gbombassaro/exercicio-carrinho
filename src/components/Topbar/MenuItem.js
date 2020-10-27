@@ -1,6 +1,7 @@
 import React from 'react';
 import {Box, Chip, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   menuItem: {
@@ -31,6 +32,12 @@ const MenuItem = ({classes, title, amount}) => {
       {amount && <Chip className={classes.chip} label={amount} classes={{label: classes.chipLabel}} />}
     </Box>
   )
+}
+
+MenuItem.propTypes = {
+  classes: PropTypes.object,
+  title: PropTypes.string,
+  amount: PropTypes.number
 }
 
 export default withStyles(styles)(MenuItem);

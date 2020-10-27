@@ -2,6 +2,7 @@ import React from 'react';
 import {Chip} from '@material-ui/core';
 import {ShoppingCart} from '@material-ui/icons';
 import {withStyles} from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   container: {
@@ -36,6 +37,11 @@ const CartButton = ({classes, data}) => {
       <ShoppingCart className={classes.icon}/>
     </div>
   )
+}
+
+CartButton.propTypes = {
+  classes: PropTypes.object,
+  data: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(CartButton);

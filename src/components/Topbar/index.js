@@ -5,6 +5,7 @@ import {withStyles} from '@material-ui/core/styles';
 import CartButton from './CartButton';
 import BackButton from './BackButton';
 import CartMenu from './CartMenu';
+import PropTypes from 'prop-types';
 
 const styles = (theme) => ({
   container: {
@@ -53,6 +54,11 @@ const Topbar = ({classes, data}) => {
       <CartMenu data={data} />
     </Grid>
   )
+}
+
+Topbar.propTypes = {
+  classes: PropTypes.object,
+  data: PropTypes.object.isRequired
 }
 
 Topbar.defaultProps = {

@@ -4,6 +4,7 @@ import {Box, Button, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import {find} from 'lodash';
 import {getProductContainerStyles} from '../../styles/components'
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   container: getProductContainerStyles(theme)
@@ -15,9 +16,18 @@ const Product = ({classes, cart, data, addProductAction}) => {
   return (
     <Box className={classes.container}>
       <Typography>{name}</Typography>
-      <Button color="primary" disabled={productInCart} onClick={addProductAction}>{productInCart ? "Produto já adicionado" : "Adicionar ao Carrinho +" }</Button>
+      <Button color="primary" disabled={productInCart} onClick={addProductAction}>
+        {productInCart ? "Produto já adicionado" : "Adicionar ao Carrinho +" }
+      </Button>
     </Box>
   )
+}
+
+Product.propTypes = {
+  classes: PropTypes.object,
+  cart: PropTypes.object,
+  data: PropTypes.object.isRequired,
+  addProductAction: PropTypes.func.isRequired
 }
 
 const mapStateToProps = ({cart}) => {
