@@ -9,6 +9,16 @@ const styles = theme => ({
     ...getProductContainerStyles(theme),
     justifyContent: 'flex-start'
   },
+  labels: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  actionButtons: {
+    width: 'max-content',
+    display: 'flex',
+    alignItems: 'center'
+  },
   icon: {
     fill: theme.palette.primary.main
   }
@@ -18,7 +28,7 @@ const CartProduct = ({classes, data, addAction, removeAction}) => {
   const {name, price, productAmount} = data;
   return (
     <Box className={classes.container}>
-      <div style={{width: 'max-content', display: 'flex'}}>
+      <div className={classes.actionButtons}>
         <IconButton onClick={removeAction}>
           <Remove className={classes.icon}/>
         </IconButton>
@@ -27,7 +37,7 @@ const CartProduct = ({classes, data, addAction, removeAction}) => {
           <Add className={classes.icon} />
         </IconButton>
       </div>
-      <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}>
+      <div className={classes.labels}>
         <Typography>{name}</Typography>
         <Typography>R$ {price},00</Typography>
       </div>

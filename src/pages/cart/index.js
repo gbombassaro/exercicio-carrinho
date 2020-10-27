@@ -9,7 +9,12 @@ import {getProductContainerStyles} from '../../styles/components'
 import Dialog from '../../components/Dialog';
 
 const styles = (theme) => ({
-  totalContainer: getProductContainerStyles(theme),
+  totalContainer: {
+    ...getProductContainerStyles(theme),
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
   buttonContainer: {
     display: 'flex',
     justifyContent: 'flex-end',
@@ -33,10 +38,10 @@ const Carrinho = ({classes, cart, dispatch}) => {
   const renderTotalContent = () => {
     if (emptyCart) return <Typography>Não há produtos no seu carrinho.</Typography>;
     return (
-      <div>
+      <React.Fragment>
         <Typography>Total</Typography>
-        <Typography>R$ {sumBy(cart, 'totalAmount')},00</Typography>
-      </div>
+        <Typography>R$ {sumBy(cart, 'totalPrice')},00</Typography>
+      </React.Fragment>
     )
   }
 

@@ -8,16 +8,16 @@ const addToCart = (state, action) => {
 
 const increaseAmount = (state, action) => {
   let product = find(state, {id: action.payload.id})
-  let productAmount = product.productAmount;
-  product.productAmount = productAmount + 1;
+  product.productAmount++;
+  product.totalPrice = product.price * product.productAmount;
   return [...state]
 }
 
 const decreaseAmount = (state, action) => {
   let product = find(state, {id: action.payload.id})
-  let productAmount = product.productAmount;
-  product.productAmount = productAmount - 1;
-  if (productAmount === 1) remove(state, product);
+  product.productAmount--;
+  product.totalPrice = product.price * product.productAmount;
+  if (product.productAmount === 0) remove(state, product);
   return [...state]
 }
 
