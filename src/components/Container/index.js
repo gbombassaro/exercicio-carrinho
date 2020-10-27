@@ -48,7 +48,7 @@ const Container = ({classes, children, state, title}) => {
 Container.propTypes = {
   classes: PropTypes.object,
   children: PropTypes.array.isRequired,
-  state: PropTypes.object.isRequired,
+  state: PropTypes.array.isRequired,
   title: PropTypes.string
 };
 

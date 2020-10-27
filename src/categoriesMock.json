@@ -1,0 +1,14 @@
+[
+  {
+    "id": "refrigerante",
+    "name": "Refrigerante"
+  },
+  {
+    "id": "doces",
+    "name": "Doces"
+  },
+  {
+    "id": "alimento",
+    "name": "Alimento"
+  }
+]

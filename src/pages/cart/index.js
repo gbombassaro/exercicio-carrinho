@@ -77,7 +77,7 @@ const Carrinho = ({classes, cart, dispatch}) => {
 
 Carrinho.propTypes = {
   classes: PropTypes.object,
-  cart: PropTypes.object,
+  cart: PropTypes.array,
   dispatch: PropTypes.func
 };
 

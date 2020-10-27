@@ -60,7 +60,7 @@ const Topbar = ({classes, data}) => {
 
 Topbar.propTypes = {
   classes: PropTypes.object,
-  data: PropTypes.object.isRequired
+  data: PropTypes.array.isRequired
 };
 
 Topbar.defaultProps = {

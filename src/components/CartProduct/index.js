@@ -49,7 +49,7 @@ const CartProduct = ({classes, data, addAction, removeAction}) => {
 
 CartProduct.propTypes = {
   classes: PropTypes.object,
-  data: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
   addAction: PropTypes.func.isRequired,
   removeAction: PropTypes.func.isRequired
 };

@@ -26,7 +26,7 @@ const Product = ({classes, cart, data, addProductAction}) => {
 
 Product.propTypes = {
   classes: PropTypes.object,
-  cart: PropTypes.object,
+  cart: PropTypes.array,
   data: PropTypes.object.isRequired,
   addProductAction: PropTypes.func.isRequired
 };
