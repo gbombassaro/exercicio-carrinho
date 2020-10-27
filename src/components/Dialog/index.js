@@ -3,6 +3,7 @@ import {Button, Dialog as MuiDialog, Typography} from '@material-ui/core'
 import {CheckCircle} from '@material-ui/icons'
 import {useHistory} from 'react-router-dom';
 import {withStyles} from '@material-ui/core/styles'
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   content: {
@@ -29,13 +30,13 @@ const styles = theme => ({
   }
 })
 
-const Dialog = ({classes, open, onClose}) => {
+const Dialog = ({classes, clearState, open, onClose}) => {
 
   const history = useHistory();
 
   const handleClick = () => {
     onClose();
-    // clearState();
+    clearState();
     history.goBack();
   }
 
@@ -48,6 +49,13 @@ const Dialog = ({classes, open, onClose}) => {
       </div>
     </MuiDialog>
   )
+}
+
+Dialog.propTypes = {
+  classes: PropTypes.object,
+  clearState: PropTypes.func.isRequired,
+  open: PropTypes.bool,
+  onClose: PropTypes.func.isRequired
 }
 
 export default withStyles(styles)(Dialog);

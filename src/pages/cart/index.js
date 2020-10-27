@@ -58,12 +58,16 @@ const Carrinho = ({classes, cart, dispatch}) => {
     dispatch({type: 'DECREASE_AMOUNT', payload: entry})
   }
 
+  const clearState = () => {
+    dispatch({type: 'CLEAR'})
+  }
+
   return (
     <Container state={cart} title='Finalizar pedido'>
       {map(cart, (entry, key) => <CartProduct key={key} data={entry} addAction={() => handleIncreaseAmount(entry)} removeAction={() => handleDecreaseAmount(entry)}/>)}
       <div className={classes.totalContainer}>{renderTotalContent()}</div>
       <div className={classes.buttonContainer}>{renderCheckoutButton()}</div>
-      <Dialog open={dialog} onClose={closeDialog} />
+      <Dialog open={dialog} onClose={closeDialog} clearState={clearState} />
     </Container>
   )
 }
