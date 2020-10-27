@@ -32,6 +32,20 @@ const styles = (theme) => ({
   icon: {
     width: 40,
     height: 40
+  },
+  leftContent: {
+    minWidth: 120,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
+  },
+  rightContent: {
+    minWidth: 120,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
   }
 });
 
@@ -44,16 +58,29 @@ const Topbar = ({classes, data}) => {
     return <BackButton />;
   };
 
+  const renderCartButton = () => {
+    if (pathname === '/carrinho') return null;
+    return (
+      <React.Fragment>
+        <Link to='/carrinho'>
+          <CartButton path='/carrinho' data={data} />
+        </Link>
+        <CartMenu data={data} />
+      </React.Fragment>
+    )
+  }
+
   return (
     <Grid className={classes.container}>
-      {renderBackButton()}
+      <div className={classes.leftContent}>
+        {renderBackButton()}
+      </div>
       <Grid className={classes.brandContainer}>
         <img src='/bulbasaur.png' className={classes.brand}/>
       </Grid>
-      <Link to='/carrinho'>
-        <CartButton path='/carrinho' data={data} />
-      </Link>
-      <CartMenu data={data} />
+      <div className={classes.rightContent}>
+        {renderCartButton()}
+      </div>
     </Grid>
   );
 };

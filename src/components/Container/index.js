@@ -15,7 +15,9 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    width: '100%',
+    width: 'calc(100% - 32px)',
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
     [theme.breakpoints.up('md')]: {
       maxWidth: 500
     },
