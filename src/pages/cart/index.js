@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
-import {connect} from 'react-redux';
-import {Button, Typography} from '@material-ui/core'
+import {Button, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import {map, sumBy} from 'lodash';
-import Container from '../../components/Container';
-import CartProduct from '../../components/CartProduct';
-import {getProductContainerStyles} from '../../styles/components'
-import Dialog from '../../components/Dialog';
 import PropTypes from 'prop-types';
+import React, {useState} from 'react';
+import {connect} from 'react-redux';
+
+import CartProduct from '../../components/CartProduct';
+import Container from '../../components/Container';
+import Dialog from '../../components/Dialog';
+import {getProductContainerStyles} from '../../styles/components';
+
 
 const styles = (theme) => ({
   totalContainer: {
@@ -21,7 +23,7 @@ const styles = (theme) => ({
     justifyContent: 'flex-end',
     marginTop: theme.spacing(2)
   }
-})
+});
 
 const Carrinho = ({classes, cart, dispatch}) => {
 
@@ -30,23 +32,23 @@ const Carrinho = ({classes, cart, dispatch}) => {
 
   const openDialog = () => {
     setDialog(true);
-  }
+  };
 
   const closeDialog = () => {
     setDialog(false);
-  }
+  };
 
   const handleIncreaseAmount = entry => {
-    dispatch({type: 'INCREASE_AMOUNT', payload: entry})
-  }
+    dispatch({type: 'INCREASE_AMOUNT', payload: entry});
+  };
 
   const handleDecreaseAmount = entry => {
-    dispatch({type: 'DECREASE_AMOUNT', payload: entry})
-  }
+    dispatch({type: 'DECREASE_AMOUNT', payload: entry});
+  };
 
   const clearState = () => {
-    dispatch({type: 'CLEAR'})
-  }
+    dispatch({type: 'CLEAR'});
+  };
 
   const renderTotalContent = () => {
     if (emptyCart) return <Typography>Não há produtos no seu carrinho.</Typography>;
@@ -55,13 +57,13 @@ const Carrinho = ({classes, cart, dispatch}) => {
         <Typography>Total</Typography>
         <Typography>R$ {sumBy(cart, 'totalPrice')},00</Typography>
       </React.Fragment>
-    )
-  }
+    );
+  };
 
   const renderCheckoutButton = () => {
     if (emptyCart) return null;
     return <Button color='primary' variant='contained' onClick={openDialog}>Finalizar compra</Button>;
-  }
+  };
 
   return (
     <Container state={cart} title='Finalizar pedido'>
@@ -70,17 +72,17 @@ const Carrinho = ({classes, cart, dispatch}) => {
       <div className={classes.buttonContainer}>{renderCheckoutButton()}</div>
       <Dialog open={dialog} onClose={closeDialog} clearState={clearState} />
     </Container>
-  )
-}
+  );
+};
 
 Carrinho.propTypes = {
   classes: PropTypes.object,
   cart: PropTypes.object,
   dispatch: PropTypes.func
-}
+};
 
 const mapStateToProps = ({cart}) => {
   return {cart};
-}
+};
 
 export default connect(mapStateToProps, null)(withStyles(styles)(Carrinho));

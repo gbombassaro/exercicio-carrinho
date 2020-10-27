@@ -13,4 +13,4 @@ export const getProductContainerStyles = theme => ({
   '&:hover': {
     borderColor: theme.palette.primary.main
   }
-})
+});

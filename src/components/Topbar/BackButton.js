@@ -1,9 +1,9 @@
+import {Typography} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles';
+import {KeyboardArrowLeft} from '@material-ui/icons';
+import PropTypes from 'prop-types';
 import React from 'react';
 import {useHistory} from 'react-router-dom';
-import {Typography} from '@material-ui/core';
-import {KeyboardArrowLeft} from '@material-ui/icons';
-import {withStyles} from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
 
 const styles = theme => ({
   container: {
@@ -21,7 +21,7 @@ const styles = theme => ({
     fontWeight: 'bold',
     textTransform: 'uppercase'
   }
-})
+});
 
 const BackButton = ({classes}) => {
 
@@ -29,18 +29,18 @@ const BackButton = ({classes}) => {
 
   const handleClick = () => {
     history.goBack();
-  }
+  };
 
   return (
     <div className={classes.container} onClick={handleClick}>
       <KeyboardArrowLeft className={classes.icon}/>
       <Typography className={classes.typography}>Voltar</Typography>
     </div>
-  )
-}
+  );
+};
 
 BackButton.propTypes = {
   classes: PropTypes.object,
-}
+};
 
 export default withStyles(styles)(BackButton);

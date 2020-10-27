@@ -1,9 +1,10 @@
-import React from 'react';
 import {Box, Typography, IconButton} from '@material-ui/core';
-import {Add, Remove} from '@material-ui/icons';
 import {withStyles} from '@material-ui/core/styles';
-import {getProductContainerStyles} from '../../styles/components'
+import {Add, Remove} from '@material-ui/icons';
 import PropTypes from 'prop-types';
+import React from 'react';
+
+import {getProductContainerStyles} from '../../styles/components';
 
 const styles = theme => ({
   container: {
@@ -23,7 +24,7 @@ const styles = theme => ({
   icon: {
     fill: theme.palette.primary.main
   }
-})
+});
 
 const CartProduct = ({classes, data, addAction, removeAction}) => {
   const {name, price, productAmount} = data;
@@ -43,14 +44,14 @@ const CartProduct = ({classes, data, addAction, removeAction}) => {
         <Typography>R$ {price},00</Typography>
       </div>
     </Box>
-  )
-}
+  );
+};
 
 CartProduct.propTypes = {
   classes: PropTypes.object,
   data: PropTypes.object.isRequired,
   addAction: PropTypes.func.isRequired,
   removeAction: PropTypes.func.isRequired
-}
+};
 
 export default withStyles(styles)(CartProduct);

@@ -1,8 +1,9 @@
-import React from 'react';
-import Topbar from '../../components/Topbar';
 import {Box, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import React from 'react';
+
+import Topbar from '../../components/Topbar';
 
 const styles = theme => ({
   container: {
@@ -26,7 +27,7 @@ const styles = theme => ({
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(2)
   }
-})
+});
 
 const Container = ({classes, children, state, title}) => {
   return (
@@ -41,14 +42,14 @@ const Container = ({classes, children, state, title}) => {
         </div>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
 Container.propTypes = {
   classes: PropTypes.object,
   children: PropTypes.array.isRequired,
   state: PropTypes.object.isRequired,
   title: PropTypes.string
-}
+};
 
 export default withStyles(styles)(Container);

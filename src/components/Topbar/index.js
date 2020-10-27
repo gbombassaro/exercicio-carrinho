@@ -1,11 +1,13 @@
-import React from 'react';
-import {Link, useHistory} from 'react-router-dom';
 import {Grid} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
-import CartButton from './CartButton';
-import BackButton from './BackButton';
-import CartMenu from './CartMenu';
 import PropTypes from 'prop-types';
+import React from 'react';
+import {Link, useHistory} from 'react-router-dom';
+
+import BackButton from './BackButton';
+import CartButton from './CartButton';
+import CartMenu from './CartMenu';
+
 
 const styles = (theme) => ({
   container: {
@@ -31,7 +33,7 @@ const styles = (theme) => ({
     width: 40,
     height: 40
   }
-})
+});
 
 const Topbar = ({classes, data}) => {
   const history = useHistory();
@@ -39,8 +41,8 @@ const Topbar = ({classes, data}) => {
 
   const renderBackButton = () => {
     if (pathname === '/') return null;
-    return <BackButton />
-  }
+    return <BackButton />;
+  };
 
   return (
     <Grid className={classes.container}>
@@ -53,16 +55,16 @@ const Topbar = ({classes, data}) => {
       </Link>
       <CartMenu data={data} />
     </Grid>
-  )
-}
+  );
+};
 
 Topbar.propTypes = {
   classes: PropTypes.object,
   data: PropTypes.object.isRequired
-}
+};
 
 Topbar.defaultProps = {
   data: []
-}
+};
 
 export default withStyles(styles)(Topbar);

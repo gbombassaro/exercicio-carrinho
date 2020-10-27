@@ -1,8 +1,8 @@
-import React from 'react';
 import {Chip} from '@material-ui/core';
-import {ShoppingCart} from '@material-ui/icons';
 import {withStyles} from '@material-ui/core/styles';
+import {ShoppingCart} from '@material-ui/icons';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const styles = theme => ({
   container: {
@@ -28,7 +28,7 @@ const styles = theme => ({
     height: 32,
     fill: theme.palette.primary.main
   }
-})
+});
 
 const CartButton = ({classes, data}) => {
   return (
@@ -36,12 +36,12 @@ const CartButton = ({classes, data}) => {
       <Chip label={data.length} className={classes.amountBadge} classes={{label: classes.badgeLabel}} />
       <ShoppingCart className={classes.icon}/>
     </div>
-  )
-}
+  );
+};
 
 CartButton.propTypes = {
   classes: PropTypes.object,
   data: PropTypes.object.isRequired
-}
+};
 
 export default withStyles(styles)(CartButton);

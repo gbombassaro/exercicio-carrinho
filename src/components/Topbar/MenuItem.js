@@ -1,7 +1,7 @@
-import React from 'react';
 import {Box, Chip, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const styles = theme => ({
   menuItem: {
@@ -23,7 +23,7 @@ const styles = theme => ({
   chipLabel: {
     padding: 0,
   },
-})
+});
 
 const MenuItem = ({classes, title, amount}) => {
   return (
@@ -31,13 +31,13 @@ const MenuItem = ({classes, title, amount}) => {
       <Typography className={classes.menuItemTitle}>{title}</Typography>
       {amount && <Chip className={classes.chip} label={amount} classes={{label: classes.chipLabel}} />}
     </Box>
-  )
-}
+  );
+};
 
 MenuItem.propTypes = {
   classes: PropTypes.object,
   title: PropTypes.string,
   amount: PropTypes.number
-}
+};
 
 export default withStyles(styles)(MenuItem);

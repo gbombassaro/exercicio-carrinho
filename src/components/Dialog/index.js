@@ -1,9 +1,9 @@
-import React from 'react';
-import {Button, Dialog as MuiDialog, Typography} from '@material-ui/core'
-import {CheckCircle} from '@material-ui/icons'
-import {useHistory} from 'react-router-dom';
-import {withStyles} from '@material-ui/core/styles'
+import {Button, Dialog as MuiDialog, Typography} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles';
+import {CheckCircle} from '@material-ui/icons';
 import PropTypes from 'prop-types';
+import React from 'react';
+import {useHistory} from 'react-router-dom';
 
 const styles = theme => ({
   content: {
@@ -28,7 +28,7 @@ const styles = theme => ({
     height: 50,
     fill: theme.palette.secondary.main
   }
-})
+});
 
 const Dialog = ({classes, clearState, open, onClose}) => {
 
@@ -38,7 +38,7 @@ const Dialog = ({classes, clearState, open, onClose}) => {
     onClose();
     clearState();
     history.goBack();
-  }
+  };
 
   return (
     <MuiDialog open={open} onClose={onClose} disableBackdropClick disableEscapeKeyDown>
@@ -48,14 +48,14 @@ const Dialog = ({classes, clearState, open, onClose}) => {
         <Button variant='contained' color='secondary' onClick={handleClick}>Fechar</Button>
       </div>
     </MuiDialog>
-  )
-}
+  );
+};
 
 Dialog.propTypes = {
   classes: PropTypes.object,
   clearState: PropTypes.func.isRequired,
   open: PropTypes.bool,
   onClose: PropTypes.func.isRequired
-}
+};
 
 export default withStyles(styles)(Dialog);

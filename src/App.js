@@ -1,6 +1,7 @@
+import {ThemeProvider} from '@material-ui/core';
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {ThemeProvider} from '@material-ui/core';
+
 import {Carrinho, ListaDeProdutos} from './pages';
 import {theme} from './styles/theme';
 import './styles/index.css';
